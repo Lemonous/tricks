@@ -73,3 +73,5 @@ These are the differences I have found so far:
 Paste your modified data into [this excellent website](http://www.playlist-converter.net/#/), and click "Convert to Spotify". Hopefully it should find most of the songs. Connect it to your spotify account to automatically make a new playlist. Remember to open the playlist in a new tab if you do it in the browser.
 
 The few songs that weren't found can now be added manually to the mostly complete playlist. Enjoy!
+
+Also: consider donating to the folks behind Playlist Converter. Without them, this would have been a helluva lot harder :) There's a Paypal button if you follow the link above!
