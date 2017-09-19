@@ -4,9 +4,9 @@ I used Chrome for this - the steps may differ slightly in Firefox.
 
 ## Preparing to get data from Gplay
 
-Firstly, open the Google Play playlist website. Once you have done that, put a breakpoint on attribute changes of the tbody of the playlist table (hopefully of class ".song-table"). Notice that tbody has several attributes with the word index in them.
+Firstly, open the Google Play playlist webpage. Once you have done that, put a breakpoint on attribute changes of the playlist table tbody (hopefully of class ".song-table"). Notice that tbody has several attributes with the word index in them.
 
-Simply scroll up or down. The execution will stop, and it will point you to the line where it stopped. Pretty print the file, this will make reading it a lot easier.
+Simply scroll up or down. The execution will stop, and it will point you to the line where execution stopped. Pretty print the file; this will make reading it a lot easier.
 
 Find the line containing something like this:
 
@@ -14,7 +14,7 @@ Find the line containing something like this:
 var e = b.bl.G5().height
 ```
 
-The important part is .height - it's the only line containing it. Underneath that should be a line something like this:
+The important part is .height - it's the only line containing that property. Slightly further down in the file should be a line something like this:
 
 ```javascript
 e = new qZ(f-10,f+Math.ceil(h/e)+10)
@@ -38,7 +38,7 @@ Let the current function call finish, then scroll the page again. All the songs 
 document.querySelectorAll('.song-table tr.song-row').length;
 ```
 
-Now you can finally copy the names and artists with the following code snippet in console (yes, it's ES2016 :D):
+Now you can finally copy the names and artists with the following code snippet in console:
 
 ```javascript
 var playlistString = "", playlist = document.querySelectorAll('.song-table tr.song-row');
@@ -60,18 +60,18 @@ Copy the resulting text into a text file - we'll have to do a few changes to it 
 
 ## Changing the data
 
-If you have a really long playlist, you might want to use some regex here. I didn't, so I haven't taken the time to make a regex string. If you do use regex, please do contact me so I can add it to here :)
+If you have a really long playlist, you might want to use some kind of automata here. My playlist was short enough that I didn't need it, so I didn't make such a script. If you do use make one, please contact me so I can add it here :)
 
-These are the differences I have found so far:
+These are the differences I have found so far between Gplay and Spotify:
 
- - Spotify almost never has "(feat. someGuy)" in the title. Delete all these.
- - If several artists are strung together with ampersands ("&"), delete the least known of them or change the ampersand to a comma.
- - Some inconsistency between square brackets and parentheses. I suggest parentheses everywhere.
+ - Spotify almost never has "(feat. otherPerson)" in the title. More songs are successfully converted if you delete this part
+ - If several artists are strung together with ampersands ("&"), keep only the most well-known of the artists, or change ampersands to commas
+ - Some inconsistency between square brackets and parentheses. Spotify seems to use parentheses almost everywhere.
  
 ## Converting the data
 
-Paste your modified data into [this excellent website](http://www.playlist-converter.net/#/), and click "Convert to Spotify". Hopefully it should find most of the songs. Connect it to your spotify account to automatically make a new playlist. Remember to open the playlist in a new tab if you do it in the browser.
+Paste your modified data into [this excellent website](http://www.playlist-converter.net/#/), and click "Convert to Spotify". Hopefully it should find most of the songs. Connect it to your Spotify account to automatically make a new playlist. Remember to open the playlist in a new tab if you do it in the browser.
 
 The few songs that weren't found can now be added manually to the mostly complete playlist. Enjoy!
 
-Also: consider donating to the folks behind Playlist Converter. Without them, this would have been a helluva lot harder :) There's a Paypal button if you follow the link above!
+Also: consider donating to the folks behind Playlist Converter. Without them, this would have been a lot harder :) There's a Paypal button if you follow the link above!
