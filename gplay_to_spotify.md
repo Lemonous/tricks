@@ -1,6 +1,6 @@
 # Transferring a playlist from Google Play to Spotify
 
-I used Chrome for this - the steps may differ slightly in Firefox.
+I used Chrome for this - the steps may differ slightly in other browsers.
 
 ## Preparing to get data from Gplay
 
